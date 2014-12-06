@@ -4,7 +4,7 @@ mlh-hack-day-erlang-intro
 __Intro to Erlang | MLH Hack Day 2014__
 
 Follow along:
-<a targer="_blank" href="https://docs.google.com/presentation/d/1nqoJ0KL7D-JRR-2y1cxq-Tf-Ah3dQTZK_tU3UB28qy8">Presentation by Alexandra Berke</a>
+<a targer="_blank" href="https://docs.google.com/presentation/d/1nqoJ0KL7D-JRR-2y1cxq-Tf-Ah3dQTZK_tU3UB28qy8">Presentation by Alex Berke</a>
 
 ## Getting started
 
@@ -35,19 +35,3 @@ Eshell V6.0  (abort with ^G)
 
 - `.hrl` files can be included within other files
 	- These files are similar to `.h` files in __C__
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

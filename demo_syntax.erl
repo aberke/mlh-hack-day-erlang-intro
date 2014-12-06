@@ -10,9 +10,13 @@
 % Comments are preceded by '%' symbols
 
 % variable names start with uppercase letters
+% 	> Variable = 1.
 % atoms start with lowercase letters
+% 	> SomeAtom = some_atom.
 % booleans are just the atoms 'true' and 'false'
-% tuples are in brackets, eg {1, 2} or {ok, 1, false}
+% 	> True = true.
+% tuples are in brackets
+%	> {1, 2} or {ok, 1, false, "hi"}
 % lists are nested -- more later, eg [] is empty list
 % strings are syntactic sugar for lists of characters
 % binaries are nice...
@@ -95,13 +99,3 @@ arity_multiple(Value1, Value2) ->
 -spec function_with_spec(integer()) -> list().
 function_with_spec(SomeNumber) when is_integer(SomeNumber) ->
 	[SomeNumber]. % returns list with 1 item
-
-
-
-
-
-
-
-
-
-

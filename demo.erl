@@ -12,8 +12,16 @@
 
 -export([
 		get_favorite_number/0,
+
 		pattern_matching_unpack_variables/0,
-		pattern_matching_function_clause/1
+		pattern_matching_function_clause/1,
+
+		integers_list/1,
+		double/1,
+		filter_non_integers/1,
+
+		double_with_otp/1,
+		filter_non_integers_with_opt/1
 	]).
 
 -include("demo.hrl").
@@ -49,10 +57,57 @@ pattern_matching_function_clause({Item1, _Item2, _Item3}=SomeTuple) ->
 	[Item1, SomeTuple].
 
 
-% about lists
+%% about lists
+%--------------
+% a list is the concatenation of the first node and another list 
+% [] is the empty list
+% a list is [Head | Tail] where Tail is another list
+
+% can represent the same list in the following ways
+% [2, 1, 0]
+% [2 | [1, 0]]
+% [2 | [1 | [0]]]
 
 
-% recursion not iteration
+% Make a list of positive integers up to Digit that was passed as argument
+% eg, [0,1,2] = integer_list(2)
+-spec integers_list(integer()) -> list().
+integers_list(0) -> [];
+integers_list(Digit) ->
+	[Digit | integers_list(Digit - 1)].
+
+
+% think in recursion not iteration!
+
+% Double each of the values in a list of integers
+-spec double([integer()]) -> [integer()].
+double([]) -> [];
+double([Value | Tail]) ->
+	[Value*2 | double(Tail)].
+
+% filter all the non integers out of a list
+% [0, 2] = demo:filter_non_integers([0, "erlang", 2, {5}]).
+-spec filter_non_integers(list()) -> list().
+filter_non_integers([]) -> [];
+filter_non_integers([Value | Tail]) when is_integer(Value) ->
+	[Value | filter_non_integers(Tail)];
+filter_non_integers([_ | Tail]) ->
+	filter_non_integers(Tail). % skip that non integer!
+
+
+% in practice we use OTP!
+
+% double with the commonly used lists:map/2 function to make code more readable
+double_with_otp(SomeList) ->
+	lists:map(fun(Value) -> 2*Value end, SomeList).
+
+% filter with the commonly used lists:filter/2 to make code more readable
+filter_non_integers_with_opt(SomeList) ->
+	lists:filter(fun is_integer/1, SomeList).
+
+
+
+
 
 
 
